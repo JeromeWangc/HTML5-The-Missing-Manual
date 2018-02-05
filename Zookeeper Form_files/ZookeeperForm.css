@@ -60,3 +60,7 @@ input[type=submit] {
   width: 150px;
   padding: 10px;
 }
+
+input:required {
+  background-color: lightyellow;
+}

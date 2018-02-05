@@ -14,23 +14,32 @@
   <fieldset>
     <legend>Contact Details</legend>
       <label for="name">Name <em>*</em></label>
-      <input id="name"><br>
+      <!--添加placeholder属性来给用户格式提醒-->
+      <!--添加autofocus来让光标默认选择到该位置，仅支持input元素和textarea元素-->
+      <!--通过添加requeried，实现客户端验证，防止未添加此字段就将数据提交-->
+      <!--在form标签或input标签中添加formnovalidate属性来取消客户端验证-->
+      <input id="name" placeholder="Jane Smith" autofocus required><br>
       <label for="telephone">Telephone</label>
-      <input id="telephone"><br>
+      <input id="telephone" placeholder="(xxx) xxx-xxxx"><br>
       <label for="email">Email <em>*</em></label>
-      <input id="email"><br>
+      <input id="email" required><br>
   </fieldset>
   <fieldset>
     <legend>Personal Information</legend>
       <label for="age">Age<em>*</em></label>
-      <input id="age"><br>
+      <!--通过添加pattern属性来利用正则表达式验证填写的内容-->
+      <input id="age" required pattern="[0-9]{2}" title="your age should have tow numbers"><br>
       <label for="gender">Gender</label>
       <select id="gender">
         <option value="female">Female</option>
         <option value="male">Male</option>
       </select><br>
       <label for="comments">When did you first know you wanted to be a zoo-keeper?</label>
-      <textarea id="comments"></textarea>
+      <!--为元素的oninput事件添加函数进行验证-->
+      <textarea id="comments" oninput="validateComments(this)"></textarea>
+      <!--Spellcheck属性设置为true时，可以对用户的输入进行拼写检查
+          Autocomplete属性设置为on时，可以在用户输入信息时提供最近的输入信息来进行选择
+          -->
   </fieldset>
 
   <fieldset>
@@ -46,5 +55,5 @@
   </fieldset>
   <p><input type="submit" value="Submit Application"></p>
 </form>
-
+<script src="Zookeeper Form_files/validateComments.js"></script>
 </body></html>
