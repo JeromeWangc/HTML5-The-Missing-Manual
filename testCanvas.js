@@ -29,4 +29,29 @@ function drawCanvas() {
     context.stroke();
 }
 
-window.onload = drawCanvas;
+function drawTriangle() {
+    //获取canvas元素
+    var canvas = document.getElementById("drawingCanvas");
+    //获取2d绘图上下文
+    var context = canvas.getContext("2d");
+
+    context.moveTo(250,50);
+    context.lineTo(50,250);
+    context.lineTo(450,250);
+    //context.lineTo(450,250);
+    context.closePath();
+
+    //填充内部
+    context.fillStyle = "blue";
+    context.fill();
+
+    //绘制轮廓
+    context.lineWidth = 10;
+    context.strokeStyle = "red";
+    context.stroke();
+    //直接填充一个矩形区域
+    context.fillRect(10,10,30,20);
+    //绘制一个矩形
+    context.strokeRect(100,100,50,30);
+}
+window.onload = drawTriangle;
