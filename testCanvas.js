@@ -54,4 +54,20 @@ function drawTriangle() {
     //绘制一个矩形
     context.strokeRect(100,100,50,30);
 }
-window.onload = drawTriangle;
+
+function drawRound() {
+    //获取canvas元素
+    var canvas = document.getElementById("drawingCanvas");
+    //获取2d绘图上下文
+    var context = canvas.getContext("2d");
+    //圆形的各种参数
+    var centerX = 150;
+    var centerY = 200;
+    var radius = 100;
+    var startingAngle = 1.25 * Math.PI;
+    var endingAngle = 1.75 * Math.PI;
+    //绘制弧形
+    context.arc(centerX,centerY,radius,startingAngle,endingAngle);
+    context.stroke();
+}
+window.onload = drawRound;
