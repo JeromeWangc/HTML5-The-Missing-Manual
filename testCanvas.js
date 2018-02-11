@@ -70,4 +70,22 @@ function drawRound() {
     context.arc(centerX,centerY,radius,startingAngle,endingAngle);
     context.stroke();
 }
-window.onload = drawRound;
+
+function drawBezier(){
+    var canvas = document.getElementById("drawingCanvas");
+    var context = canvas.getContext("2d");
+    //起点
+    context.moveTo(62,242);
+    
+    var control1_x = 187;
+    var control1_y = 32;
+    var control2_x = 429;
+    var control2_y = 480;
+    var endingX = 365;
+    var endingY = 133;
+
+    context.bezierCurveTo(control1_x,control1_y,control2_x,control2_y,endingX,endingY);
+    context.stroke();
+}
+
+window.onload = drawBezier;
