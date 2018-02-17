@@ -91,15 +91,38 @@ function drawBezier(){
 function testTranslate(){
     var canvas = document.getElementById("drawingCanvas");
     var context = canvas.getContext("2d");
-
+    //绘制矩形
     context.rect(0,0,30,30);
-
+    //偏移坐标原点
     context.translate(50,50);
     context.rect(0,0,30,30);
-
+    //再次偏移坐标原点
     context.translate(50,50);
     context.rect(0,0,30,30);
 
     context.stroke();
 }
-window.onload = testTranslate;
+
+function testAlpha() {
+    var canvas = document.getElementById("drawingCanvas");
+    var context = canvas.getContext("2d");
+    //设置颜色
+    context.fillStyle = "rgb(100,150,185)";
+    context.lineWidth = 10;
+    context.strokeStyle = "red";
+    //绘制圆形
+    context.arc(110,120,100,0,2* Math.PI);
+    context.fill();
+    context.stroke();
+    //更改透明度
+    context.beginPath();
+    context.fillStyle = "rgba(100,150,185,0.5)";
+    //绘制三角形
+    context.moveTo(215,50);
+    context.lineTo(15,250);
+    context.lineTo(315,250);
+    context.closePath();
+    context.fill();
+    context.stroke();
+}
+window.onload = testAlpha;
