@@ -1,3 +1,4 @@
+var imgd = document.getElementById("wall");
 var canvas = document.getElementById("drawPicture");
 var context = canvas.getContext("2d");
 //粗体 大小 字体
@@ -31,6 +32,15 @@ img.onload = function () {
     context.lineWidth = "1";
     context.strokeStyle = "red";
     context.strokeText("I'm an OUTLINE",0,300);
+
+    context.beginPath();
+    //创建图案对象
+    var pattern = context.createPattern(imgd,"repeat");
+    //设置填充
+    context.fillStyle = pattern;
+    context.rect(0,400,500,300);
+    context.fill();
+
 }
 //加载图片
 img.src = "drawPicture.jpg";
